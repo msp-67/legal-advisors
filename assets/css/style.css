@@ -822,3 +822,7 @@ html[lang="cs"] .hero-quote { text-indent: -0.4em; }
 .site-nav ul { gap: clamp(0.9rem, 2vw, 2rem); }
 .site-nav a { font-size: 0.95rem; }
 .lang-switch { margin-left: 0.25rem; }
+/* Tlacitka: nikdy nelamat text */
+.btn { white-space: nowrap; flex: none; }
+.btn .btn-label { white-space: nowrap; }
+.hero-actions .btn { flex: none; }
