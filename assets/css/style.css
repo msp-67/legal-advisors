@@ -774,3 +774,51 @@ a {
 @media (max-width: 620px) {
   .header-cta { display: none; }
 }
+@media (min-width: 1181px) {
+  .site-nav ul {
+    background: rgba(18, 22, 28, 0.05);
+    border-radius: var(--radius-pill);
+    padding: 0.35rem 0.5rem;
+    gap: 0.15rem;
+  }
+  .site-nav a {
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-pill);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .site-nav a:hover {
+    background: #fff;
+    color: var(--blue);
+  }
+  .lang-switch {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .lang-switch::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1.35rem;
+    background: var(--line);
+  }
+}
+/* Hero nadpis: mensi a opticky zarovnany */
+.hero-title {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  max-width: 18ch;
+}
+html[lang="cs"] .hero-title {
+  font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+  max-width: 22ch;
+  text-indent: -0.42em;
+}
+html[lang="cs"] .hero-quote { text-indent: -0.4em; }
+
+/* Hlavicka: vzdusnejsi rozestupy */
+.header-inner { gap: clamp(1rem, 3vw, 2.75rem); }
+.site-nav ul { gap: clamp(0.9rem, 2vw, 2rem); }
+.site-nav a { font-size: 0.95rem; }
+.lang-switch { margin-left: 0.25rem; }
