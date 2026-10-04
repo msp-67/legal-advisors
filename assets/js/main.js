@@ -8,8 +8,8 @@ const CONTACT_EMAIL = 'jan@spacil.attorney';
   const t = {
     cs: {
       sending: 'Odesílám…',
-      sent: 'Děkujeme, zpráva byla odeslána. Ozveme se Vám co nejdříve.',
-      error: 'Něco se pokazilo. Zkuste to prosím znovu nebo nám napište na ' + CONTACT_EMAIL + '.',
+      sent: 'Děkuji, zpráva byla odeslána. Ozvu se Vám co nejdříve.',
+      error: 'Něco se pokazilo. Zkuste to prosím znovu nebo mi napište na ' + CONTACT_EMAIL + '.',
       required: 'Toto pole je povinné.',
       email: 'Zadejte prosím platnou emailovou adresu.',
       consent: 'Pro odeslání je nutný souhlas se zpracováním osobních údajů.',
@@ -17,8 +17,8 @@ const CONTACT_EMAIL = 'jan@spacil.attorney';
     },
     en: {
       sending: 'Sending…',
-      sent: 'Thank you, your message has been sent. We will get back to you shortly.',
-      error: 'Something went wrong. Please try again or email us at ' + CONTACT_EMAIL + '.',
+      sent: 'Thank you, your message has been sent. I will get back to you shortly.',
+      error: 'Something went wrong. Please try again or email me at ' + CONTACT_EMAIL + '.',
       required: 'This field is required.',
       email: 'Please enter a valid email address.',
       consent: 'Consent to personal data processing is required.',
@@ -97,6 +97,146 @@ const CONTACT_EMAIL = 'jan@spacil.attorney';
       el.classList.add('is-visible');
     });
   }
+
+  /* ---------- Cookie banner ----------
+     Zadne cookies ani skripty se nespousti pred volbou uzivatele.
+     Volba se uklada do localStorage pod klicem la-cookie-consent. */
+  const CONSENT_KEY = 'la-cookie-consent';
+
+  const cookieCopy = {
+    cs: {
+      title: 'Používáme cookies',
+      text: 'Nezbytné cookies používáme k zajištění správného fungování webu. Se svým souhlasem nám umožníte používat také analytické cookies, které nám pomáhají pochopit, jak návštěvníci web využívají, abychom jej mohli zlepšovat.',
+      accept: 'Přijmout vše',
+      essential: 'Pouze nezbytné',
+      policy: 'Zásady cookies',
+      policyHref: '/cz/zasady-cookies/',
+      label: 'Nastavení souhlasu s cookies'
+    },
+    en: {
+      title: 'We use cookies',
+      text: 'We use essential cookies to keep this website running, and — with your consent — analytics cookies to help us understand how visitors use the site so we can improve it.',
+      accept: 'Accept all',
+      essential: 'Essential only',
+      policy: 'Cookie Policy',
+      policyHref: '/cookie-policy/',
+      label: 'Cookie consent settings'
+    }
+  }[lang];
+
+  function readConsent() {
+    try {
+      return window.localStorage.getItem(CONSENT_KEY);
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function writeConsent(value) {
+    try {
+      window.localStorage.setItem(CONSENT_KEY, value);
+    } catch (err) {
+      /* localStorage nedostupne (private mode) — volba plati jen pro tuto navstevu */
+    }
+  }
+
+  function clearConsent() {
+    try {
+      window.localStorage.removeItem(CONSENT_KEY);
+    } catch (err) {
+      /* nic */
+    }
+  }
+
+  /* Misto pro budouci analytiku. Volat pouze pri souhlasu 'all'. */
+  function enableAnalytics() {}
+
+  let banner = null;
+
+  function buildBanner() {
+    const el = document.createElement('aside');
+    el.className = 'cookie-banner';
+    el.id = 'cookie-banner';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-label', cookieCopy.label);
+    el.setAttribute('aria-describedby', 'cookie-banner-text');
+    el.tabIndex = -1;
+
+    const inner = document.createElement('div');
+    inner.className = 'container cookie-inner';
+
+    const copy = document.createElement('div');
+    copy.className = 'cookie-copy';
+    const title = document.createElement('p');
+    title.className = 'cookie-title';
+    title.textContent = cookieCopy.title;
+    const text = document.createElement('p');
+    text.className = 'cookie-text';
+    text.id = 'cookie-banner-text';
+    text.textContent = cookieCopy.text;
+    copy.appendChild(title);
+    copy.appendChild(text);
+
+    const actions = document.createElement('div');
+    actions.className = 'cookie-actions';
+
+    const acceptBtn = document.createElement('button');
+    acceptBtn.type = 'button';
+    acceptBtn.className = 'btn btn-primary';
+    acceptBtn.textContent = cookieCopy.accept;
+    acceptBtn.addEventListener('click', function () {
+      choose('all');
+    });
+
+    const essentialBtn = document.createElement('button');
+    essentialBtn.type = 'button';
+    essentialBtn.className = 'btn btn-outline';
+    essentialBtn.textContent = cookieCopy.essential;
+    essentialBtn.addEventListener('click', function () {
+      choose('essential');
+    });
+
+    const policyLink = document.createElement('a');
+    policyLink.className = 'cookie-link';
+    policyLink.href = cookieCopy.policyHref;
+    policyLink.textContent = cookieCopy.policy;
+
+    actions.appendChild(acceptBtn);
+    actions.appendChild(essentialBtn);
+    actions.appendChild(policyLink);
+
+    inner.appendChild(copy);
+    inner.appendChild(actions);
+    el.appendChild(inner);
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function showBanner(focus) {
+    if (!banner) banner = buildBanner();
+    banner.hidden = false;
+    if (focus) banner.focus();
+  }
+
+  function choose(value) {
+    writeConsent(value);
+    if (banner) banner.hidden = true;
+    if (value === 'all') enableAnalytics();
+  }
+
+  const storedConsent = readConsent();
+  if (storedConsent === 'all') {
+    enableAnalytics();
+  } else if (storedConsent !== 'essential') {
+    showBanner(false);
+  }
+
+  document.querySelectorAll('[data-cookie-settings]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      clearConsent();
+      showBanner(true);
+    });
+  });
 
   /* Contact form */
   const form = document.getElementById('contact-form');

@@ -5,10 +5,72 @@
     <loc>https://legaladvisors.cz/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/"/>
   </url>
   <url>
     <loc>https://legaladvisors.cz/cz/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/legal-notice/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/legal-notice/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/pravni-upozorneni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/legal-notice/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/cz/pravni-upozorneni/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/legal-notice/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/pravni-upozorneni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/legal-notice/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/disclaimer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/disclaimer/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/podminky-uziti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/disclaimer/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/cz/podminky-uziti/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/disclaimer/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/podminky-uziti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/disclaimer/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/privacy-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/zasady-ochrany-osobnich-udaju/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/privacy-policy/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/cz/zasady-ochrany-osobnich-udaju/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/zasady-ochrany-osobnich-udaju/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/privacy-policy/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/cookie-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/zasady-cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/cookie-policy/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/cz/zasady-cookies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/zasady-cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/cookie-policy/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/aml-notice/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/aml-notice/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/aml/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/aml-notice/"/>
+  </url>
+  <url>
+    <loc>https://legaladvisors.cz/cz/aml/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://legaladvisors.cz/aml-notice/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://legaladvisors.cz/cz/aml/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://legaladvisors.cz/aml-notice/"/>
   </url>
 </urlset>
